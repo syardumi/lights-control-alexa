@@ -84,15 +84,9 @@ function handleRequest(response, intent) {
 	var toggleContents, action, switch_pos, location, raw_loc;
 
 	//figure out the location first
-	if (intent != undefined) {
-		if (intent.hasOwnProperty('slots') && intent.slots.hasOwnProperty('roomlights') && intent.slots.roomlights.value != undefined) {
-			location = intent.slots.roomlights.value.replace(/ /g,'');
-			raw_loc = intent.slots.roomlights.value;
-		}
-		else {
-			location = 'livingroom';
-			raw_loc = 'living room';
-		}
+	if (intent != undefined && intent.hasOwnProperty('slots') && intent.slots.hasOwnProperty('roomlights') && intent.slots.roomlights.value != undefined) {
+		location = intent.slots.roomlights.value.replace(/ /g,'');
+		raw_loc = intent.slots.roomlights.value;
 	}
 	else {
 		location = 'livingroom';
